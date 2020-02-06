@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class License{
   @Id
   @Column
-  private String id;
+  private String licenseId;
   @Column
   private String organizationId;
   @Column
@@ -20,12 +20,12 @@ public class License{
   @Column
   private String comment;
 
-  public String getId() {
-    return id;
+  public String getLicenseId() {
+    return licenseId;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setLicenseId(String id) {
+    this.licenseId = id;
   }
 
   public String getOrganizationId() {
