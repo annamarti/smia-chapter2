@@ -8,6 +8,9 @@ spring:
       server:
         git:
           uri: https://github.com/annamarti/config-repo
+          searchPaths: licensingservice,organizationservice
+          username: native-cloud-apps
+          password: 0ffended
 #  cloud:
 #    config:
 #      server:
