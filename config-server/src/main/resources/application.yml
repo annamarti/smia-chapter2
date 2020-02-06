@@ -6,10 +6,5 @@ spring:
   cloud:
     config:
       server:
-        git:
-          uri:
-#  cloud:
-#    config:
-#      server:
-#        native:
-#          search-locations: file:///Users\annama\learnspace\micros\chapter2\config-server\src\main\resources\config\licensingservice
+        native:
+          search-locations: file:///Users\annama\learnspace\micros\chapter2\config-server\src\main\resources\config\licensingservice
