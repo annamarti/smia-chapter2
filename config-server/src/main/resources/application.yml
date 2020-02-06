@@ -1,0 +1,15 @@
+server:
+  port: 8888
+spring:
+  profiles:
+    active: native #The backend repository (filesystem) that will be used to store the configuration
+  cloud:
+    config:
+      server:
+        git:
+          uri:
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: file:///Users\annama\learnspace\micros\chapter2\config-server\src\main\resources\config\licensingservice
