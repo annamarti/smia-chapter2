@@ -6,33 +6,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/v1/organizations/{organizationId}/licences")
 public class LicenseServiceController {
+
     @Autowired
     private LicenseService licenseService;
 
-    @RequestMapping(value="/{licenseId}",method = RequestMethod.GET)
+    @GetMapping
+    public List<License> getLicensesByOrganizationId(@PathVariable("organizationId") String organizationId) {
+        return licenseService.findLicenseByOrganizationId(organizationId);
+    }
+
+    @GetMapping("{licenseId}")
     public License getLicenses(@PathVariable("organizationId") String organizationId,
                                @PathVariable("licenseId") String licenseId) {
-
-        //return licenseService.getLicense(licenseId);
         return licenseService.getLicense(organizationId, licenseId);
     }
 
-    @RequestMapping(value="{licenseId}",method = RequestMethod.PUT)
-    public String updateLicenses( @PathVariable("licenseId") String licenseId) {
-        return String.format("This is the put");
+    @PostMapping
+    public void addLicenses(@RequestBody License license) {
+        licenseService.saveLicense(license);
     }
 
-    @RequestMapping(value="{licenseId}",method = RequestMethod.POST)
-    public String saveLicenses( @PathVariable("licenseId") String licenseId) {
-        return String.format("This is the post");
+    @PutMapping
+    public void updateLicenses(@PathVariable("licenseId") String licenseId,
+                               @RequestBody License license) {
+        licenseService.updateLicense(license);
     }
 
-    @RequestMapping(value="{licenseId}",method = RequestMethod.DELETE)
+    @DeleteMapping("{licenseId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public String deleteLicenses( @PathVariable("licenseId") String licenseId) {
+    public String deleteLicenses(@PathVariable("licenseId") String licenseId) {
         return String.format("This is the Delete");
     }
+
 }
