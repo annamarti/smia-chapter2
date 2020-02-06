@@ -1,18 +1,20 @@
 server:
   port: 8888
 spring:
-  profiles:
-    active: native #The backend repository (filesystem) that will be used to store the configuration
+
+#####  For configs in filesystem  #####
+#  profiles:
+#    active: native #The backend repository (filesystem) that will be used to store the configuration
+#  cloud:
+#    config:
+#      server:
+#        encrypt:
+#          enabled: false
+#        native:
+#          searchLocations: classpath:config/,classpath:config/licensingservice
   cloud:
     config:
       server:
         git:
           uri: https://github.com/annamarti/config-repo
           searchPaths: licensingservice,organizationservice
-          username: native-cloud-apps
-          password: 0ffended
-#  cloud:
-#    config:
-#      server:
-#        native:
-#          search-locations: file:///Users\annama\learnspace\micros\chapter2\config-server\src\main\resources\config\licensingservice
