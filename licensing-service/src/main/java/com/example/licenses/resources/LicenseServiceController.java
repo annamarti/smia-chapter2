@@ -1,7 +1,7 @@
 package com.example.licenses.resources;
 
-import com.example.licenses.model.License;
 import com.example.licenses.service.LicenseService;
+import com.example.licenses.model.License;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -32,8 +32,7 @@ public class LicenseServiceController {
     }
 
     @PutMapping
-    public void updateLicenses(@PathVariable("licenseId") String licenseId,
-                               @RequestBody License license) {
+    public void updateLicenses(@RequestBody License license) {
         licenseService.updateLicense(license);
     }
 

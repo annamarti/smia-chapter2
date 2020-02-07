@@ -1,8 +1,8 @@
 package com.example.licenses.service;
 
+import com.example.licenses.repository.LicenseRepository;
 import com.example.licenses.config.ServiceConfig;
 import com.example.licenses.model.License;
-import com.example.licenses.repository.LicenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
