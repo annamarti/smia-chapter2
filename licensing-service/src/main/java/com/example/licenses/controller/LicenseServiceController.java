@@ -1,4 +1,4 @@
-package com.example.licenses.resources;
+package com.example.licenses.controller;
 
 import com.example.licenses.service.LicenseService;
 import com.example.licenses.model.License;
