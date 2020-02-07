@@ -36,7 +36,7 @@ public class LicenseService {
     }
 
     public List<License> findLicenseByOrganizationId(String organizationId) {
-        return  licenseRepository.findByOrganizationId(organizationId);
+        return licenseRepository.findByOrganizationId(organizationId);
     }
 
 }

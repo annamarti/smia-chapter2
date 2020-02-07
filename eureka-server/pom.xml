@@ -11,6 +11,11 @@
 
     <artifactId>eureka-server</artifactId>
 
+    <properties>
+        <docker.image.name>annamart/eureka-server</docker.image.name>
+        <docker.image.tag>chapter3</docker.image.tag>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

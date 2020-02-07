@@ -2,16 +2,16 @@ server:
   port: 8888
 spring:
 
-#####  For configs in filesystem  #####
-#  profiles:
-#    active: native #The backend repository (filesystem) that will be used to store the configuration
-#  cloud:
-#    config:
-#      server:
-#        encrypt:
-#          enabled: false
-#        native:
-#          searchLocations: classpath:config/,classpath:config/licensingservice
+  #####  For configs in filesystem  #####
+  #  profiles:
+  #    active: native #The backend repository (filesystem) that will be used to store the configuration
+  #  cloud:
+  #    config:
+  #      server:
+  #        encrypt:
+  #          enabled: false
+  #        native:
+  #          searchLocations: classpath:config/,classpath:config/licensingservice
   cloud:
     config:
       server:
