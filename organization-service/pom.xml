@@ -11,6 +11,11 @@
 
     <artifactId>organization-service</artifactId>
 
+    <properties>
+        <docker.image.name>annamart/organization-service</docker.image.name>
+        <docker.image.tag>chapter3</docker.image.tag>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -23,6 +28,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
