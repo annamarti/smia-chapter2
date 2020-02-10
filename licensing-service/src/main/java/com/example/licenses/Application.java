@@ -18,13 +18,12 @@ public class Application {
     }
 
     @Bean
-    public RestTemplate getRestTemplate(){
+    public RestTemplate getRestTemplate() {
         RestTemplate template = new RestTemplate();
         List interceptors = template.getInterceptors();
-        if (interceptors==null){
+        if (interceptors == null) {
             template.setInterceptors(Collections.singletonList(new UserContextInterceptor()));
-        }
-        else{
+        } else {
             interceptors.add(new UserContextInterceptor());
             template.setInterceptors(interceptors);
         }

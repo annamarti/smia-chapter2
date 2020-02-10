@@ -4,7 +4,7 @@ services:
   eurekaserver:
     image: annamart/eureka-server:chapter3
     ports:
-    - "8761:8761"
+      - "8761:8761"
 
   configserver:
     image: annamart/config-server:chapter3
@@ -37,7 +37,7 @@ services:
       DATABASESERVER_PORT:      "3306"
       CONFIGSERVER_PORT:        "8888"
       ORGSERVERNEW_PORT:        "8087"
-#      ZUULSERVER_PORT:          "5555"
+      #      ZUULSERVER_PORT:          "5555"
       ENCRYPT_KEY:       "IMSYMMETRIC"
 
   organizationservice:

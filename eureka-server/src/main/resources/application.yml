@@ -6,12 +6,6 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-      default-zone: http://localhost:8761
+      default-zone:
   server:
     wait-time-in-ms-when-sync-empty: 5
-
-logging:
-  level:
-    com.netflix: WARN
-    org.springframework: WARN
-    com.example: DEBUG

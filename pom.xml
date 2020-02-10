@@ -15,12 +15,6 @@
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
-    <modules>
-
-        <module>config-server</module>
-        <module>eureka-server</module>
-    </modules>
-
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
@@ -44,22 +38,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <imageName>${docker.image.name}:${docker.image.tag}</imageName>-->
-<!--                    <dockerDirectory>${basedir}/target/dockerfile</dockerDirectory>-->
-<!--                    <resources>-->
-<!--                        <resource>-->
-<!--                            <targetPath>/</targetPath>-->
-<!--                            <directory>${project.build.directory}</directory>-->
-<!--                            <include>${project.build.finalName}.jar</include>-->
-<!--                        </resource>-->
-<!--                    </resources>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
         </plugins>
     </build>
 

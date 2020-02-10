@@ -1,5 +1,5 @@
-encrypt:
-  key: "IMSYMMETRIC"
+#encrypt:
+#  key: "IMSYMMETRIC"
 spring:
   cloud:
     config:

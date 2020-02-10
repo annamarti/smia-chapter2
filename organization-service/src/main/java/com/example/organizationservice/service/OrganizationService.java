@@ -16,16 +16,16 @@ public class OrganizationService {
         return orgRepository.findById(organizationId);
     }
 
-    public void save(Organization org){
-        org.setId( UUID.randomUUID().toString());
+    public void save(Organization org) {
+        org.setId(UUID.randomUUID().toString());
         orgRepository.save(org);
     }
 
-    public void update(Organization org){
+    public void update(Organization org) {
         orgRepository.save(org);
     }
 
-    public void delete(Organization org){
+    public void delete(Organization org) {
         orgRepository.delete(org);
     }
 }

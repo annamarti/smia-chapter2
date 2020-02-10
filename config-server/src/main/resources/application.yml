@@ -1,6 +1,12 @@
 server:
   port: 8888
 spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/annamarti/config-repo
+          searchPaths: licensingservice,organizationservice
 
   #####  For configs in filesystem  #####
   #  profiles:
@@ -12,9 +18,3 @@ spring:
   #          enabled: false
   #        native:
   #          searchLocations: classpath:config/,classpath:config/licensingservice
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/annamarti/config-repo
-          searchPaths: licensingservice,organizationservice
