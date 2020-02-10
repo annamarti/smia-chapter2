@@ -15,6 +15,13 @@
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
+    <modules>
+        <module>config-server</module>
+        <module>eureka-server</module>
+        <module>licensing-service</module>
+        <module>organization-service</module>
+    </modules>
+
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>

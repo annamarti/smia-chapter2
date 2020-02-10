@@ -1,7 +1,7 @@
 package com.example.licenses.controller;
 
-import com.example.licenses.service.LicenseService;
 import com.example.licenses.model.License;
+import com.example.licenses.service.LicenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +14,13 @@ public class LicenseServiceController {
 
     @Autowired
     private LicenseService licenseService;
+
+    @GetMapping(value = "/{licenseId}/{clientType}")
+    public License getLicenseWithClient(@PathVariable("organizationId") String organizationId,
+                                        @PathVariable("licenseId") String licenseId,
+                                        @PathVariable("clientType") String clientType) {
+        return licenseService.getLicense(organizationId, licenseId, clientType);
+    }
 
     @GetMapping
     public List<License> getLicensesByOrganizationId(@PathVariable("organizationId") String organizationId) {
@@ -38,8 +45,8 @@ public class LicenseServiceController {
 
     @DeleteMapping("{licenseId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public String deleteLicenses(@PathVariable("licenseId") String licenseId) {
-        return String.format("This is the Delete");
+    public void deleteLicenses(@PathVariable("licenseId") String licenseId) {
+        licenseService.deleteLicense(licenseService.getLicense(licenseId));
     }
 
 }

@@ -17,10 +17,8 @@ public class OrganizationServiceController {
 
     private static final Logger logger = LoggerFactory.getLogger(OrganizationServiceController.class);
 
-    @RequestMapping(value = "/{organizationId}", method = RequestMethod.GET)
+    @GetMapping(value = "/{organizationId}")
     public Organization getOrganization(@PathVariable("organizationId") String organizationId) {
-        logger.debug(String.format("Looking up data for org {}", organizationId));
-
         Organization org = orgService.getOrg(organizationId);
         org.setContactName("OLD::" + org.getContactName());
         return org;

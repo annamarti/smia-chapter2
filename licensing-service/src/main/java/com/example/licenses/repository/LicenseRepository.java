@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LicenseRepository extends CrudRepository<License, Integer> {
+public interface LicenseRepository extends CrudRepository<License, String> {
 
     List<License> findByOrganizationId(String organizationId);
 
