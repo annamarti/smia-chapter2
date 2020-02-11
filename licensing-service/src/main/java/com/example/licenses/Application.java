@@ -22,6 +22,8 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+    //    The @LoadBalanced annotation tells Spring Cloud
+    //    to create a Ribbon backed RestTemplate class.
     @LoadBalanced
     @Bean
     public RestTemplate getRestTemplate() {

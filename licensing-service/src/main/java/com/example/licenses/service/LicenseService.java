@@ -51,7 +51,7 @@ public class LicenseService {
 
     private Organization getOrganization(String organizationId, String clientType) {
         Organization organization;
-        switch (clientType) {
+        switch (clientType.toUpperCase()) {
             case "DISCOVERY":
                 organization = organizationDiscoveryClient.getOrganization(organizationId);
                 break;

@@ -1,7 +1,6 @@
 package com.example.licenses.client;
 
 import com.example.licenses.model.Organization;
-import com.example.licenses.util.UserContextHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

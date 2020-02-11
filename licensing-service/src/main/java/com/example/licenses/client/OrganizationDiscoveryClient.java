@@ -14,6 +14,10 @@ import java.util.List;
 @Component
 public class OrganizationDiscoveryClient {
 
+    //    'DiscoveryClient' - the class that interacts with Ribbon.
+    //  You aren’t taking advantage of Ribbon’s client side load-balancing—By calling the DiscoveryClient
+    //  directly, you get back a list of services, but it becomes your responsibility
+    //  to choose which service instances returned you’re going to invoke
     @Autowired
     private DiscoveryClient discoveryClient;
 
