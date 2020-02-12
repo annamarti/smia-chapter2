@@ -10,9 +10,15 @@ eureka:
     service-url:
       default-zone: http://localhost:8761/eureka/
 
+
 #Setting logging levels
 logging:
   level:
     com.netflix: WARN
     org.springframework.web: WARN
     com.thoughtmechanix: DEBUG
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
