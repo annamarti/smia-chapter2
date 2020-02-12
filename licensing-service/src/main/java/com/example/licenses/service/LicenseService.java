@@ -7,9 +7,12 @@ import com.example.licenses.config.ServiceConfig;
 import com.example.licenses.model.License;
 import com.example.licenses.model.Organization;
 import com.example.licenses.repository.LicenseRepository;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -49,6 +52,7 @@ public class LicenseService {
         return license;
     }
 
+    @HystrixCommand
     private Organization getOrganization(String organizationId, String clientType) {
         Organization organization;
         switch (clientType.toUpperCase()) {
@@ -77,8 +81,23 @@ public class LicenseService {
         licenseRepository.delete(license);
     }
 
+    @HystrixCommand(fallbackMethod = "buildFallbackMethodList",
+            threadPoolKey = "licensesByOrgThreadPool", // The threadPoolKey attribute defines the unique name of thread pool.
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize", value = "30"),  //The coreSize attribute lets you define the maximum number of threads in the thread pool.
+                    @HystrixProperty(name = "maxQueueSize", value = "10")} //The maxQueueSize lets you define a queue that sits in front of your thread pool and that can queue incoming requests
+    )
     public List<License> findLicenseByOrganizationId(String organizationId) {
         return licenseRepository.findByOrganizationId(organizationId);
     }
 
+    private List<License> buildFallbackMethodList(String organizationId) {
+        List<License> fallBackList = new ArrayList<>();
+        License license = new License();
+        license.setLicenseId("0000-0000-0000");
+        license.setOrganizationId(organizationId);
+        license.setProductName("Sorry no license information currently availabe");
+        fallBackList.add(license);
+        return fallBackList;
+    }
 }
