@@ -7,6 +7,7 @@ import com.example.licenses.config.ServiceConfig;
 import com.example.licenses.model.License;
 import com.example.licenses.model.Organization;
 import com.example.licenses.repository.LicenseRepository;
+import com.example.licenses.util.UserContextHolder;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class LicenseService {
@@ -81,13 +83,48 @@ public class LicenseService {
         licenseRepository.delete(license);
     }
 
-    @HystrixCommand(fallbackMethod = "buildFallbackMethodList",
+    @HystrixCommand(
+            fallbackMethod = "buildFallbackMethodList",
             threadPoolKey = "licensesByOrgThreadPool", // The threadPoolKey attribute defines the unique name of thread pool.
             threadPoolProperties = {
-                    @HystrixProperty(name = "coreSize", value = "30"),  //The coreSize attribute lets you define the maximum number of threads in the thread pool.
-                    @HystrixProperty(name = "maxQueueSize", value = "10")} //The maxQueueSize lets you define a queue that sits in front of your thread pool and that can queue incoming requests
+                    @HystrixProperty(name = "coreSize", value = "30"),  // The coreSize attribute lets you define the maximum number of threads in the thread pool.
+                    @HystrixProperty(name = "maxQueueSize", value = "10") // The maxQueueSize lets you define a queue that sits in front of your thread pool and that can queue incoming requests
+
+            },
+            commandProperties = {
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "75"),
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "7000"),
+                    @HystrixProperty(name = "metrics.rollingStats.timeInMilliseconds", value = "15000"),
+                    @HystrixProperty(name = "metrics.rollingStats.numBuckets", value = "5")
+            }
     )
     public List<License> findLicenseByOrganizationId(String organizationId) {
+        UserContextHolder
+                .getContext()
+                .getCorrelationId();
+        randomlyRunLong();
+        return licenseRepository.findByOrganizationId(organizationId);
+    }
+
+    private void randomlyRunLong() {
+        Random rand = new Random();
+        int randomNum = rand.nextInt((3 - 1) + 1) + 1;
+        if (randomNum == 3) {
+            sleep();
+        }
+    }
+
+    private void sleep() {
+        try {
+            Thread.sleep(11000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<License> getLicensesByOrg(String organizationId) {
+        randomlyRunLong();
         return licenseRepository.findByOrganizationId(organizationId);
     }
 
