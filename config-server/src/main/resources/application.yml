@@ -7,8 +7,6 @@ spring:
         git:
           uri: https://github.com/annamarti/config-repo
           search-paths: licensingservice,organizationservice
-        encrypt:
-          enabled: false
 
 logging:
   level:
