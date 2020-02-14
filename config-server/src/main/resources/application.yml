@@ -6,8 +6,15 @@ spring:
       server:
         git:
           uri: https://github.com/annamarti/config-repo
-          searchPaths: licensingservice,organizationservice
+          search-paths: licensingservice,organizationservice
+        encrypt:
+          enabled: false
 
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.thoughtmechanix: DEBUG
   #####  For configs in filesystem  #####
   #  profiles:
   #    active: native #The backend repository (filesystem) that will be used to store the configuration

@@ -1,8 +1,5 @@
 #encrypt:
 #  key: "IMSYMMETRIC"
 spring:
-  cloud:
-    config:
-      server:
-        encrypt:
-          enabled: false
+  application:
+    name: configserver
