@@ -1,9 +1,9 @@
 spring:
   application:
-    name: zullserver
+    name: zuulserver
   profiles:
     active:
       default
   cloud:
     config:
-      enabled: true
+      uri: http://localhost:8888
