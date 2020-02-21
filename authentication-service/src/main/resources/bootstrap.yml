@@ -1,10 +1,11 @@
 spring:
   application:
-    name: specialroutesservice
+    name: authenticationservice
   profiles:
     active: default
   cloud:
     config:
       enabled: true
+
 encrypt:
   key: "IMSYMMETRIC"

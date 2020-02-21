@@ -12,15 +12,15 @@ import javax.servlet.Filter;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-public class Application {
+public class SpecialRoutesApp {
 
-    @Bean
-    public Filter userContextFilter() {
-        UserContextFilter userContextFilter = new UserContextFilter();
-        return userContextFilter;
-    }
+//    @Bean
+//    public Filter userContextFilter() {
+//        UserContextFilter userContextFilter = new UserContextFilter();
+//        return userContextFilter;
+//    }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(SpecialRoutesApp.class, args);
     }
 }

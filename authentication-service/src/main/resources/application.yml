@@ -1,5 +1,3 @@
-server:
-  port: 8484
 
 eureka:
   instance:
@@ -22,3 +20,8 @@ logging:
     com.netflix: WARN
     org.springframework.web: WARN
     com.thoughtmechanix: DEBUG
+
+server:
+  servlet:
+    context-path: /auth
+  port: 8383

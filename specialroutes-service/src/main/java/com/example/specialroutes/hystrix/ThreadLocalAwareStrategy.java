@@ -1,6 +1,6 @@
 package com.example.specialroutes.hystrix;
 
-import com.example.licenses.util.UserContextHolder;
+import com.example.specialroutes.util.UserContextHolder;
 import com.netflix.hystrix.HystrixThreadPoolKey;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestVariable;

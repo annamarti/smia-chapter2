@@ -1,7 +1,8 @@
 package com.example.specialroutes.hystrix;
 
-import com.example.licenses.util.UserContext;
-import com.example.licenses.util.UserContextHolder;
+
+import com.example.specialroutes.util.UserContext;
+import com.example.specialroutes.util.UserContextHolder;
 
 import java.util.concurrent.Callable;
 
