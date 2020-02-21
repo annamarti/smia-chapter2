@@ -6,7 +6,7 @@ spring:
       server:
         git:
           uri: https://github.com/annamarti/config-repo
-          search-paths: licensingservice,organizationservice
+          search-paths: licensingservice,organizationservice,zuulserver
 
 logging:
   level:
