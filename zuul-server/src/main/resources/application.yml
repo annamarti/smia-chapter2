@@ -1,6 +1,11 @@
 server:
   port: 5555
 
+spring:
+  cloud:
+    config:
+      uri:  http://localhost:8888
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -15,3 +20,10 @@ management:
     web:
       exposure:
         include: "*"
+
+zuul:
+  ignored-services: "*"
+  prefix: /api
+  routes:
+    organizationservice: /org/**
+    licensingservice: /license/**
