@@ -70,7 +70,7 @@ services:
 
 
 #  specialroutes-service:
-#    image: annamarti/tmx-specialroutes-service:chapter6
+#    image: annamarti/specialroutes-service:chapter6
 #    ports:
 #      - "8910:8910"
 #    environment:
@@ -84,7 +84,7 @@ services:
 #      ENCRYPT_KEY:       "IMSYMMETRIC"
 
 #  zuulserver:
-#    image: annamarti/tmx-zuulsvr:chapter6
+#    image: annamarti/zuulsvr:chapter6
 #    ports:
 #      - "5555:5555"
 #    environment:
